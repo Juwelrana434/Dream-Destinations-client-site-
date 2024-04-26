@@ -1,8 +1,16 @@
-// import { FaRegUserCircle } from "react-icons/fa";
+import { FaRegUserCircle } from "react-icons/fa";
 import { IoMdHome } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import logo from "../../src/assets/logo.jpg";
+import { AuthContext } from "../component/AuthProvider";
+import { useContext, useEffect } from "react";
+
 const Navbar = () => {
+  useEffect(() => {
+    document.title = "Navbar";
+    })
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
     const navlink = (
         <>
           <li>
@@ -12,19 +20,19 @@ const Navbar = () => {
             <NavLink to="/alltourist">All Tourists Spot</NavLink>
           </li>
           <li>
-            <NavLink to="/addspot">Add Tourist Spot</NavLink>
+            <NavLink to="/addtouristspot">Add Tourists Spot</NavLink>
           </li>
           <li>
             <NavLink to="/mylist">My List </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/profile">Update Profile </NavLink>
-          </li>
+          </li> */}
             
           
-          <li>
+          {/* <li>
             <NavLink to="/about">About</NavLink>
-          </li>
+          </li> */}
           
         </>
       );
@@ -74,10 +82,10 @@ const Navbar = () => {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             ></div>
-            <NavLink to='/login'><button className='btn sm:m-0'>Login</button></NavLink>
-      <NavLink to='/register'><button className='btn ml-2'>Register</button></NavLink>
+            {/* <NavLink to='/login'><button className='btn sm:m-0'>Login</button></NavLink>
+      <NavLink to='/register'><button className='btn ml-2'>Register</button></NavLink> */}
             <div className="rounded-full flex">
-              {/* {user ? (
+              {user ? (
                 <div className="flex items-center">
                  
                   <div className="tooltip" data-tip={user.displayName}> <img className="rounded-full w-8 h-8" src={user?.photoURL} /></div>
@@ -95,7 +103,7 @@ const Navbar = () => {
                   <div><FaRegUserCircle className="lg:text-3xl text-xl md:ml-2 mt-2 md:text-2xl text-black" /></div>
                 </div>
               )}
-               */}
+              
               
             </div>
           </div>
