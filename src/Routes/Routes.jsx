@@ -7,6 +7,7 @@ import Register from "../Pages/Register";
 import ProtectedRout from "../component/ProtectedRout/ProtectedRout";
 import AddTouristSpot from "../Pages/AddTouristSpot";
 import Mylist from "./../Pages/Mylist";
+import TourSpotDetail from "../Pages/TourSpotDetail";
 
 Root;
 
@@ -19,6 +20,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/tourspots/')
+        
       },
       {
         path: "/login",
@@ -36,15 +39,16 @@ const router = createBrowserRouter([
           </ProtectedRout>
         ),
       },
-      // {
-      //   path: "/property/:id",
-      //   element: (
-      //     <ProtectedRout>
-      //       <PropertyDetails></PropertyDetails>
-      //     </ProtectedRout>
-      //   ),
+      {
+        path: "/tourspot/:id",
+        element: (
+          <ProtectedRout>
+            <TourSpotDetail></TourSpotDetail>
+          </ProtectedRout>
+        ),
+        loader: ({params}) => fetch(`http://localhost:5000/tourspots/${params.id}`)
 
-      // },
+      },
 
       {
         path: "/mylist",
