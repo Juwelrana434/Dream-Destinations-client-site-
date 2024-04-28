@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const AllTouristSpot = () => {
  const tourists = useLoaderData();
+ console.log(tourists);
     return (
         <div>
             <div className="grid lg:grid-cols-3 gap-6 md:grid-cols-2">
@@ -29,7 +30,7 @@ const AllTouristSpot = () => {
                 </div>
                 <div className="card-actions justify-end ">
                   <div className="w-full my-4 px-4">
-                    <Link to={`/tourspot/${tourspot.id}`}>
+                    <Link to={`/tourspot/${tourspot._id}`}>
                       <button className="btn btn-primary w-full">
                         View Details
                       </button>

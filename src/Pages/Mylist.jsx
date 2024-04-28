@@ -7,7 +7,7 @@ const Mylist = () => {
     const { user, logOut } = useContext(AuthContext);
     const [tourspots, setTourSpots] = useState([]);
     useEffect(() => {
-    fetch(`http://localhost:5000/Tourist/${user?.email}`)
+    fetch(`http://localhost:5000/Tourist/email/${user?.email}`)
     .then(res => res.json())
     .then((data) => {
     setTourSpots(data)})
@@ -50,6 +50,43 @@ const Mylist = () => {
           </div>
         ))}
       </div>
+      {
+      tourspots.map((tour) => <div key={tour.id}><div className="overflow-x-auto">
+      <table className="table">
+        {/* head */}
+        <thead>
+          <tr>
+            <th></th>
+            <th>Touris</th>
+            <th>Country</th>
+            <th>Average cost</th>
+            <th>Seasonality</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* row 1 */}
+          <tr className="bg-base-200">
+            <th>1</th>
+            <td>Cy Ganderton</td>
+            
+          </tr>
+          {/* row 2 */}
+          <tr>
+            <th>2</th>
+            <td>Hart Hagerty</td>
+            
+          </tr>
+          {/* row 3 */}
+          <tr>
+            <th>3</th>
+            <td>Brice Swyre</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div></div>)
+      }
         </div>
     );
 };

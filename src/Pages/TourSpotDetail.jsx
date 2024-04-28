@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const TourSpotDetail = () => {
   const tourspot = useLoaderData();
+  const { photo, spot_name, country_name, location, short_description, average_cost,seasonality,travel_time,email, name,total_visitor } = tourspot // Fixed property name
   console.log(tourspot);
   return (
     <div>
