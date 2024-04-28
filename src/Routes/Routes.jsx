@@ -9,6 +9,7 @@ import AddTouristSpot from "../Pages/AddTouristSpot";
 import Mylist from "./../Pages/Mylist";
 import TourSpotDetail from "../Pages/TourSpotDetail";
 import AllTouristSpot from "../Pages/AllTouristSpot";
+import TourSpotUpdate from "../Pages/TourSpotUpdate";
 
 Root;
 
@@ -63,6 +64,11 @@ const router = createBrowserRouter([
         path: "/alltourist",
         element: <AllTouristSpot></AllTouristSpot>,
         loader: () => fetch('http://localhost:5000/Tourist')
+      },
+      {
+        path: "/update/:id",
+        element: <TourSpotUpdate></TourSpotUpdate>,
+       loader: ({params}) =>fetch(`http://localhost:5000/Tourist/email/${params.id}`)
       },
     ],
   },

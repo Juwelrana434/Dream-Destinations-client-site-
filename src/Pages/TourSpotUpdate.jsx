@@ -1,13 +1,15 @@
-import { useContext, useEffect } from 'react';
-import Swal from 'sweetalert2'
-import { AuthContext } from '../component/AuthProvider';
-const AddTouristSpot = () => {
-  useEffect(() => {
-    document.title = "Add Tourist spot";
-    })
-  const { user, logOut } = useContext(AuthContext);
-console.log(user.email);
-    const handleAddTouristSpots = event => {
+import Swal from "sweetalert2";
+
+
+import { useLoaderData } from "react-router-dom";
+
+const TourSpotUpdate = () => {
+    useEffect(() => {
+        document.title = "Tour Spot Update";
+        })
+const tourUpdate = useLoaderData();
+    const { _id, photo, spot_name, country_name, location, short_description, average_cost,seasonality,travel_time,email, name,total_visitor } = tourUpdate
+    const handleUpDateTouristSpots = event => {
         event.preventDefault();
         const form = event.target;
         const photo = form.photo.value;
@@ -19,26 +21,27 @@ console.log(user.email);
         const seasonality = form.seasonality.value;
         const travel_time = form.travel_time.value;
         const total_visitor = form.total_visitor.value;
-        const email = user.email;
+        // const email = user.email;
         const name = form.name.value;
         
     
-        const newTouristSpot = { photo, spot_name, country_name, location, short_description, average_cost,seasonality,travel_time,email, name,total_visitor }; // Fixed property name
-        console.log(newTouristSpot);
+        const upDateTouristSpot = { photo, spot_name, country_name, location, short_description, average_cost,seasonality,travel_time,email, name,total_visitor }; // Fixed property name
+        console.log(upDateTouristSpot);
+        
         // send to server
         
-        fetch('http://localhost:5000/Tourist',{
+        fetch(`http://localhost:5000/Tourist/update/${_id}`,{
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify(newTouristSpot )
+        body: JSON.stringify(upDateTouristSpot )
         })
         .then(res => res.json())
         .then(data =>{
          console.log(data)
-         if(data.insertedId){ 
+         if(data.modifiedCount > 0){ 
           Swal.fire({
             title: 'Success!',
-            text: 'User added successfully',
+            text: 'Tour spot update successfully',
             icon: 'success',
             confirmButtonText: 'Cool'
           })
@@ -49,12 +52,11 @@ console.log(user.email);
         
       };
     return (
-    
         <div>
              <div className="m-10 bg-[#6074f2] text-black">
-        <h1 className="text-center pt-6 text-[45px]">Add Tourist Spot </h1>
+        <h1 className="text-center pt-6 text-[45px]">Update Tourist Spot </h1>
 
-        <form onSubmit={handleAddTouristSpots}>
+        <form onSubmit={handleUpDateTouristSpots}>
           <div className="grid lg:md:grid-cols-2 gap-6">
             <div>
               <label>Image</label>
@@ -156,11 +158,11 @@ console.log(user.email);
             placeholder="Enter Your name"
             className="w-full p-2 mt-4"
           />
-          <input type="submit" value="Add Tourist Spot" className="w-full btn btn-primary" />
+          <input type="submit" value="Update Tourist Spot" className="w-full btn btn-primary" />
         </form>
       </div>
         </div>
     );
 };
 
-export default AddTouristSpot;
+export default TourSpotUpdate;

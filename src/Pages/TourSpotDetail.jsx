@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const TourSpotDetail = () => {
+  useEffect(() => {
+    document.title = "Tour spot Details";
+    })
   const tourspot = useLoaderData();
   const { photo, spot_name, country_name, location, short_description, average_cost,seasonality,travel_time,email, name,total_visitor } = tourspot // Fixed property name
   console.log(tourspot);

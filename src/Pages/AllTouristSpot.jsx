@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 
 const AllTouristSpot = () => {
+  useEffect(() => {
+    document.title = "All Tourist Spot";
+    })
  const tourists = useLoaderData();
  console.log(tourists);
     return (
