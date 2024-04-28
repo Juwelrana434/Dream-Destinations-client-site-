@@ -10,7 +10,7 @@ const Navbar = () => {
     document.title = "Navbar";
     })
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
     const navlink = (
         <>
           <li>
