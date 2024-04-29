@@ -5,6 +5,7 @@ import Home4 from "../../src/assets/Bangkok.jpg";
 import Home5 from "../../src/assets/halong.jpg";
 import Home6 from "../../src/assets/im1.jpg";
 import Home7 from "../../src/assets/im2.jpg";
+import Home8 from "../../src/assets/im3.jpg";
 
 // import Home8 from "../../src/assets/im3.jpg";
 import { useEffect, useState } from "react";
@@ -14,10 +15,10 @@ const Home = () => {
     document.title = "Home";
   });
   const tourspots = useLoaderData();
-  // my list data read 
-  const [countryName, setCountryName] = useState([])
-  
-  //  
+  // my list data read
+  const [countryName, setCountryName] = useState([]);
+
+  //
   return (
     <div>
       {/* banner section start */}
@@ -46,7 +47,7 @@ const Home = () => {
             </div>
             <div className="absolute z-10 top-[60%] right-[20%]">
               <h1 className="lg:text-4xl md:text-4xl text-xl font-bold text-[#0e25f2]">
-                Plan Your Traveling With Us{" "}
+                Plan Your Traveling With Us & Enjoy {" "}
               </h1>{" "}
               <button className="btn btn-primary my-4">View Details</button>
             </div>
@@ -68,7 +69,7 @@ const Home = () => {
             </div>
             <div className="absolute z-10 top-[60%] right-[20%]">
               <h1 className="lg:text-4xl md:text-4xl text-xl font-bold text-[#0e25f2]">
-                Plan Your Traveling With Us{" "}
+                Plan Your Traveling With Us & make Happy{" "}
               </h1>{" "}
               <button className="btn btn-primary my-4">View Details</button>
             </div>
@@ -90,7 +91,7 @@ const Home = () => {
             </div>
             <div className="absolute z-10 top-[60%] right-[20%]">
               <h1 className="lg:text-4xl md:text-4xl text-xl font-bold text-[#0e25f2]">
-                Plan Your Traveling With Us{" "}
+                Plan Your Traveling With Us with Family{" "}
               </h1>{" "}
               <button className="btn btn-primary my-4">View Details</button>
             </div>
@@ -152,12 +153,13 @@ const Home = () => {
                 />
               </div>
               <div className="">
-                <h2 className="card-title my-2 px-4">
-                  {tourspot.spot_name}
-                </h2>
+                <h2 className="card-title my-2 px-4">{tourspot.spot_name}</h2>
                 <div className="flex justify-between items-center px-4">
                   <p>{tourspot.travel_time} person</p>
-                  <p className="p-4"> Travel Time :{tourspot.total_visitor} Day</p>
+                  <p className="p-4">
+                    {" "}
+                    Travel Time :{tourspot.total_visitor} Day
+                  </p>
                 </div>
                 <div className="flex justify-between items-center px-4">
                   <p>Average cost : ${tourspot.average_cost} </p>
@@ -179,41 +181,42 @@ const Home = () => {
       </div>
 
       {/* Tourists Spots section end  */}
-      
-      
+
       {/* country section start  */}
-      
+
       {/* to={`/tourspot/${tourspot._id}`} */}
       <div>
-      
-      <h1 className="text-center text-2xl font-bold my-8 ">Find Out Your Dream Destination </h1>
-      <div className="flex justify-evenly font-bold text-[#070bee] shadow-md">
-            <a className="btn btn-primary">
-              <Link>Bangladesh</Link> 
-            </a>
-            <a  className="btn btn-primary">
-              <Link>Thailand</Link>
-            </a>
-            <a className="btn btn-primary">
-              <Link>Indonesia</Link>
-            </a>
-            <a className="btn btn-primary">
-              <Link>Malaysia</Link>
-            </a>
-            <a className="btn btn-primary">
-              <Link>Vietnam</Link>
-            </a>
-            <a className="btn btn-primary">
-              <Link>Cambodia</Link>
-            </a>
-          </div>
-      
+        <h1 className="text-center text-2xl font-bold my-8 ">
+          Find Out Your Dream Destination{" "}
+        </h1>
+        <div className="grid lg:md:grid-cols-6 grid-cols-3 lg;md:gap-4 gap-1 font-bold text-[#070bee] shadow-md">
+          <a className="btn btn-primary">
+            <Link>Bangladesh</Link>
+          </a>
+          <a className="btn btn-primary">
+            <Link>Thailand</Link>
+          </a>
+          <a className="btn btn-primary">
+            <Link>Indonesia</Link>
+          </a>
+          <a className="btn btn-primary">
+            <Link>Malaysia</Link>
+          </a>
+          <a className="btn btn-primary">
+            <Link>Vietnam</Link>
+          </a>
+          <a className="btn btn-primary">
+            <Link>Cambodia</Link>
+          </a>
+        </div>
       </div>
-      
+
       {/* country section END  */}
       {/* Extra two section Discount section start */}
       <div className="mx-4 mb-6">
-      <h1 className="text-3xl font-bold text-center my-6">Hurry up ! Collect your discount</h1>
+        <h1 className="text-3xl font-bold text-center my-6">
+          Hurry up ! Collect your discount
+        </h1>
         <div className="bg-[#0723f5]">
           {" "}
           <div
@@ -244,7 +247,7 @@ const Home = () => {
       <div className="my-6 mx-4">
         <div>
           <h1 className="text-center text-2xl font-bold my-8 ">Awesome Tour</h1>
-          <div className="flex justify-evenly font-bold text-[#070bee] shadow-md my-6">
+          <div className="grid lg:md:grid-cols-5 grid-cols-3 gap-4 font-bold text-[#070bee] shadow-md my-6">
             <a className="btn btn-primary">
               <Link>All</Link>
             </a>
@@ -261,24 +264,53 @@ const Home = () => {
               <Link>Relax</Link>
             </a>
           </div>
-          <div className="relative"><div><img src={Home6} alt="" className="my-6" /></div>
-          <div className="absolute bottom-0 w-full bg-blue-600 text-white"><div className="flex justify-evenly font-bold text-xl w-full py-4"><h1>Thailand: Bangkok</h1><h1>travel time-5days</h1><h1><del>$600</del> $400/person</h1>
-          
-          </div></div>
+          <div className="relative">
+            <div>
+              <img src={Home6} alt="" className="my-6" />
+            </div>
+            <div className="absolute bottom-0 w-full bg-blue-600 text-white">
+              <div className="lg:md:flex justify-evenly font-bold lg;md:text-xl text-sm text-center w-full lg:md:py-4 py-1">
+                <h1>Thailand: Bangkok</h1>
+                <h1>travel time-5days</h1>
+                <h1>
+                  <del>$600</del> $400/person
+                </h1>
+              </div>
+            </div>
           </div>
-          <div className="relative"><div><img src={Home7} alt="" className="my-6" /></div>
-          <div className="absolute bottom-0 w-full bg-blue-600 text-white"><div className="flex justify-evenly font-bold text-xl w-full py-4"><h1>Thailand: Bangkok</h1><h1>travel time-5days</h1><h1><del>$600</del> $400/person</h1>
-          
-          </div></div>
+          <div className="relative">
+            <div>
+              <img src={Home7} alt="" className="my-6" />
+            </div>
+            <div className="absolute bottom-0 w-full bg-blue-600 text-white">
+              <div className="lg:md:flex justify-evenly font-bold lg;md:text-xl text-sm text-center w-full lg:md:py-4 py-1">
+                <h1>Thailand: Bangkok</h1>
+                <h1>travel time-7days</h1>
+                <h1>
+                  <del>$800</del> $500/person
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <div>
+              <img src={Home8} alt="" className="my-6" />
+            </div>
+            <div className="absolute bottom-0 w-full bg-blue-600 text-white">
+              <div className="lg:md:flex justify-evenly font-bold lg;md:text-xl text-sm text-center w-full lg:md:py-4 py-1">
+                <h1>Bangladesh: Cox'x Bazar</h1>
+                <h1>travel time-6days</h1>
+                <h1>
+                  <del>$500</del> $300/person
+                </h1>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       {/* Extra two awesome Tour section end */}
-
-      
     </div>
   );
 };
 
 export default Home;
-
