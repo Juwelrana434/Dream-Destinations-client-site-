@@ -191,22 +191,22 @@ const Home = () => {
         </h1>
         <div className="grid lg:md:grid-cols-6 grid-cols-3 lg;md:gap-4 gap-1 font-bold text-[#070bee] shadow-md">
           <a className="btn btn-primary">
-            <Link>Bangladesh</Link>
+            <Link to="/bangladesh/Bangladesh">Bangladesh</Link>
           </a>
           <a className="btn btn-primary">
-            <Link>Thailand</Link>
+            <Link to="/bangladesh/Thailand">Thailand</Link>
           </a>
           <a className="btn btn-primary">
-            <Link>Indonesia</Link>
+            <Link to="/bangladesh/Indonesia">Indonesia</Link>
           </a>
           <a className="btn btn-primary">
-            <Link>Malaysia</Link>
+            <Link to="/bangladesh/Malaysia">Malaysia</Link>
           </a>
           <a className="btn btn-primary">
-            <Link>Vietnam</Link>
+            <Link to="/bangladesh/Vietnam">Vietnam</Link>
           </a>
           <a className="btn btn-primary">
-            <Link>Cambodia</Link>
+            <Link to="/bangladesh/Cambodia">Cambodia</Link>
           </a>
         </div>
       </div>

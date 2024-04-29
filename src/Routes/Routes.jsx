@@ -10,6 +10,7 @@ import Mylist from "./../Pages/Mylist";
 import TourSpotDetail from "../Pages/TourSpotDetail";
 import AllTouristSpot from "../Pages/AllTouristSpot";
 import TourSpotUpdate from "../Pages/TourSpotUpdate";
+import Bangladesh from "../Pages/Bangladesh";
 
 Root;
 
@@ -69,6 +70,11 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <TourSpotUpdate></TourSpotUpdate>,
        loader: ({params}) =>fetch(`http://localhost:5000/Tourist/email/${params.id}`)
+      },
+      {
+        path: "/bangladesh/:country",
+        element: <Bangladesh></Bangladesh>,
+       loader: ({params}) =>fetch(`http://localhost:5000/Tourist/country/${params.country}`)
       },
     ],
   },
