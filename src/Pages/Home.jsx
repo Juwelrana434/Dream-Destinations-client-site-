@@ -191,7 +191,7 @@ const Home = () => {
       {/* to={`/tourspot/${tourspot._id}`} */}
       <div>
       
-      <h1 className="text-center text-2xl font-bold my-4 ">Find Out Your Dream Destination </h1>
+      <h1 className="text-center text-2xl font-bold my-8 ">Find Out Your Dream Destination </h1>
       <div className="flex justify-evenly font-bold text-[#070bee] shadow-md">
             <a className="btn btn-primary">
               <Link>Bangladesh</Link> 
@@ -216,42 +216,6 @@ const Home = () => {
       </div>
       
       {/* country section END  */}
-      
-      {/* Extra two awesome Tour section start */}
-      <div className="my-6 mx-4">
-        <div>
-          <h1 className="text-center text-2xl font-bold my-4 ">Awesome Tour</h1>
-          <div className="flex justify-evenly font-bold text-[#070bee] shadow-md my-6">
-            <a className="btn btn-primary">
-              <Link>All</Link>
-            </a>
-            <a className="btn btn-primary">
-              <Link>Honeymoon</Link>
-            </a>
-            <a className="btn btn-primary">
-              <Link>Holiday</Link>
-            </a>
-            <a className="btn btn-primary">
-              <Link>Family</Link>
-            </a>
-            <a className="btn btn-primary">
-              <Link>Relax</Link>
-            </a>
-          </div>
-          <div className="relative"><div><img src={Home6} alt="" /></div>
-          <div className="absolute bottom-0 w-full bg-blue-600 text-white"><div className="flex justify-evenly font-bold text-xl w-full"><h1>Thailand: Bangkok</h1><h1>travel time-5days</h1><h1><del>$600</del> $400/person</h1>
-          
-          </div></div>
-          </div>
-          <div className="relative"><div><img src={Home7} alt="" /></div>
-          <div className="absolute bottom-0 w-full bg-blue-600 text-white"><div className="flex justify-evenly font-bold text-xl w-full"><h1>Thailand: Bangkok</h1><h1>travel time-5days</h1><h1><del>$600</del> $400/person</h1>
-          
-          </div></div>
-          </div>
-        </div>
-      </div>
-      {/* Extra two awesome Tour section end */}
-
       {/* Extra two section Discount section start */}
       <div className="mx-4 mb-6">
       <h1 className="text-3xl font-bold text-center my-6">Hurry up ! Collect your discount</h1>
@@ -281,6 +245,42 @@ const Home = () => {
         </div>
       </div>
       {/* Extra two section Discount section end */}
+      {/* Extra two awesome Tour section start */}
+      <div className="my-6 mx-4">
+        <div>
+          <h1 className="text-center text-2xl font-bold my-8 ">Awesome Tour</h1>
+          <div className="flex justify-evenly font-bold text-[#070bee] shadow-md my-6">
+            <a className="btn btn-primary">
+              <Link>All</Link>
+            </a>
+            <a className="btn btn-primary">
+              <Link>Honeymoon</Link>
+            </a>
+            <a className="btn btn-primary">
+              <Link>Holiday</Link>
+            </a>
+            <a className="btn btn-primary">
+              <Link>Family</Link>
+            </a>
+            <a className="btn btn-primary">
+              <Link>Relax</Link>
+            </a>
+          </div>
+          <div className="relative"><div><img src={Home6} alt="" className="my-6" /></div>
+          <div className="absolute bottom-0 w-full bg-blue-600 text-white"><div className="flex justify-evenly font-bold text-xl w-full py-4"><h1>Thailand: Bangkok</h1><h1>travel time-5days</h1><h1><del>$600</del> $400/person</h1>
+          
+          </div></div>
+          </div>
+          <div className="relative"><div><img src={Home7} alt="" className="my-6" /></div>
+          <div className="absolute bottom-0 w-full bg-blue-600 text-white"><div className="flex justify-evenly font-bold text-xl w-full py-4"><h1>Thailand: Bangkok</h1><h1>travel time-5days</h1><h1><del>$600</del> $400/person</h1>
+          
+          </div></div>
+          </div>
+        </div>
+      </div>
+      {/* Extra two awesome Tour section end */}
+
+      
     </div>
   );
 };
