@@ -4,15 +4,25 @@ import Home3 from "../../src/assets/kuala.jpg";
 import Home4 from "../../src/assets/Bangkok.jpg";
 import Home5 from "../../src/assets/halong.jpg";
 import Home6 from "../../src/assets/im1.jpg";
-// import Home7 from "../../src/assets/im2.JPG";
-import Home8 from "../../src/assets/im3.jpg";
-import { useEffect } from "react";
+import Home7 from "../../src/assets/im2.jpg";
+
+// import Home8 from "../../src/assets/im3.jpg";
+import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 const Home = () => {
   useEffect(() => {
     document.title = "Home";
   });
   const tourspots = useLoaderData();
+  // my list data read 
+  const [countryName, setCountryName] = useState([])
+  
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/Tourist/${country_name}`)
+  //   .then(res => res.json())
+  //   .then((data) => {
+  //   setCountryName(data)})
+  //   },[]);
   return (
     <div>
       {/* banner section start */}
@@ -174,34 +184,77 @@ const Home = () => {
       </div>
 
       {/* Tourists Spots section end  */}
+      
+      
+      {/* country section start  */}
+      
+      {/* to={`/tourspot/${tourspot._id}`} */}
+      <div>
+      
+      <h1 className="text-center text-2xl font-bold my-4 ">Find Out Your Dream Destination </h1>
+      <div className="flex justify-evenly font-bold text-[#070bee] shadow-md">
+            <a className="btn btn-primary">
+              <Link>Bangladesh</Link> 
+            </a>
+            <a  className="btn btn-primary">
+              <Link>Thailand</Link>
+            </a>
+            <a className="btn btn-primary">
+              <Link>Indonesia</Link>
+            </a>
+            <a className="btn btn-primary">
+              <Link>Malaysia</Link>
+            </a>
+            <a className="btn btn-primary">
+              <Link>Vietnam</Link>
+            </a>
+            <a className="btn btn-primary">
+              <Link>Cambodia</Link>
+            </a>
+          </div>
+      
+      </div>
+      
+      {/* country section END  */}
+      
       {/* Extra two awesome Tour section start */}
       <div className="my-6 mx-4">
         <div>
           <h1 className="text-center text-2xl font-bold my-4 ">Awesome Tour</h1>
-          <div className="flex justify-evenly font-bold text-[#070bee] shadow-md">
-            <a>
+          <div className="flex justify-evenly font-bold text-[#070bee] shadow-md my-6">
+            <a className="btn btn-primary">
               <Link>All</Link>
             </a>
-            <a>
+            <a className="btn btn-primary">
               <Link>Honeymoon</Link>
             </a>
-            <a>
+            <a className="btn btn-primary">
               <Link>Holiday</Link>
             </a>
-            <a>
+            <a className="btn btn-primary">
               <Link>Family</Link>
             </a>
-            <a>
+            <a className="btn btn-primary">
               <Link>Relax</Link>
             </a>
           </div>
-          <div><div><img src={Home6} alt="" /></div></div>
+          <div className="relative"><div><img src={Home6} alt="" /></div>
+          <div className="absolute bottom-0 w-full bg-blue-600 text-white"><div className="flex justify-evenly font-bold text-xl w-full"><h1>Thailand: Bangkok</h1><h1>travel time-5days</h1><h1><del>$600</del> $400/person</h1>
+          
+          </div></div>
+          </div>
+          <div className="relative"><div><img src={Home7} alt="" /></div>
+          <div className="absolute bottom-0 w-full bg-blue-600 text-white"><div className="flex justify-evenly font-bold text-xl w-full"><h1>Thailand: Bangkok</h1><h1>travel time-5days</h1><h1><del>$600</del> $400/person</h1>
+          
+          </div></div>
+          </div>
         </div>
       </div>
       {/* Extra two awesome Tour section end */}
 
       {/* Extra two section Discount section start */}
       <div className="mx-4 mb-6">
+      <h1 className="text-3xl font-bold text-center my-6">Hurry up ! Collect your discount</h1>
         <div className="bg-[#0723f5]">
           {" "}
           <div
@@ -234,9 +287,3 @@ const Home = () => {
 
 export default Home;
 
-{
-  /* <div className="bg-[url('/img/hero-pattern.svg')]">
-  <!-- Your Code -->
-</div> */
-}
-//style = {{backgroundImage: `url("https://images.unsplash.com/photo-1501183007986-d0d080b147f9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`}}
