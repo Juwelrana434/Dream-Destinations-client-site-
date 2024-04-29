@@ -90,43 +90,49 @@ const Mylist = () => {
           </div>
         ))}
       </div>
-      {
-      tourspots.map((tour) => <div key={tour.id}><div className="overflow-x-auto my-6">
-      <table className="table">
+      <div className="overflow-x-auto w-full">
+      <table className="table w-full">
         {/* head */}
-        <thead>
-          <tr>
-            <th></th>
-            <th>Tourist spot</th>
+        <thead className="w-full">
+          <tr className="W-full">
+            <div className="w-full flex justify-between text-xl font-bold"><th>Tourist spot</th>
             <th>Country</th>
             <th>Average cost</th>
             <th>Seasonality</th>
-            <th colSpan={2}>Action</th>
+            <th colSpan={2}>Action</th></div>
           </tr>
         </thead>
-        <tbody>
-          {/* row 1 */}
-          <tr className="bg-base-200">
-            <th>1</th>
-            <td>{tour.spot_name}</td>
-            <td>{tour.country_name}</td>
-            <td> ${tour.average_cost}</td>
-            <td>{tour.seasonality}</td>
-            <td><Link to={`/update/${tour._id}`}>
+       
+        <tbody className="w-full">
+        <tr className="bg-base-200">
+        
+        {
+      tourspots.map((tour) => <div key={tour.id}>
+          {/* row 1 */} 
+          {/* use map here  */}
+          
+            {/* <th>1</th> */}
+            <div className="flex w-full justify-between my-4 px-4"><h1>{tour.spot_name}</h1>
+            <h1>{tour.country_name}</h1>
+            <h1> ${tour.average_cost}</h1>
+            <h1>{tour.seasonality}</h1>
+           <div className="flex justify-between"> <h1 className="mr-10"><Link to={`/update/${tour._id}`}>
                       <button className="btn btn-success w-full">
                         Update
                       </button>
-                    </Link></td>
+                    </Link></h1>
             
-            <td>
+            <h1>
                       <button 
                       onClick={() => handleDelete(tour._id)}
                       className="btn btn-error w-full">
                         Delete
                       </button>
-                    </td>
+                    </h1></div></div>
             
-            
+                    </div>)
+      }
+      
           </tr>
           {/* row 2 */}
           {/* <tr>
@@ -140,10 +146,12 @@ const Mylist = () => {
             <td>Brice Swyre</td>
             
           </tr> */}
-        </tbody>
+        
+     
+    
+      </tbody>
       </table>
-    </div></div>)
-      }
+      </div>
       <div>
       {/* {
       tourspots.map(tourupdate => <TourSpotUpdate 

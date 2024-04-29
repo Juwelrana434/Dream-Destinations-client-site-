@@ -17,12 +17,7 @@ const Home = () => {
   // my list data read 
   const [countryName, setCountryName] = useState([])
   
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/Tourist/${country_name}`)
-  //   .then(res => res.json())
-  //   .then((data) => {
-  //   setCountryName(data)})
-  //   },[]);
+  //  
   return (
     <div>
       {/* banner section start */}
