@@ -1,14 +1,16 @@
 import Swal from "sweetalert2";
 
 
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const TourSpotUpdate = () => {
+const {id} = useParams()
     useEffect(() => {
         document.title = "Tour Spot Update";
         })
 const tourUpdate = useLoaderData();
-    const { _id, photo, spot_name, country_name, location, short_description, average_cost,seasonality,travel_time,email, name,total_visitor } = tourUpdate
+    const { photo, spot_name, country_name, location, short_description, average_cost,seasonality,travel_time,email, name,total_visitor } = tourUpdate
     const handleUpDateTouristSpots = event => {
         event.preventDefault();
         const form = event.target;
@@ -30,8 +32,8 @@ const tourUpdate = useLoaderData();
         
         // send to server
         
-        fetch(`http://localhost:5000/Tourist/update/${_id}`,{
-        method: 'POST',
+        fetch(`http://localhost:5000/Tourist/${id}`,{
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(upDateTouristSpot )
         })
