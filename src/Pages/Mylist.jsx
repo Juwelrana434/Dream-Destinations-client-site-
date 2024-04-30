@@ -73,7 +73,7 @@ const Mylist = () => {
                   <p className="p-4"> Travel Time :{tourspot.total_visitor} Day</p>
                 </div>
                 <div className="flex justify-between items-center px-4">
-                  <p>Average cost : ${tourspot.average_cost} </p>
+                  <p>Average cost : ${tourspot.average_cost} /person</p>
                   <p className="p-4">seasonality:{tourspot.seasonality} </p>
                 </div>
                 <div className="card-actions justify-end ">
