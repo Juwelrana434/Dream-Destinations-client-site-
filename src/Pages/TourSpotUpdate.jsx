@@ -32,7 +32,7 @@ const tourUpdate = useLoaderData();
         
         // send to server
         
-        fetch(`http://localhost:5000/Tourist/${id}`,{
+        fetch(`https://dream-destination-server.vercel.app/Tourist/${id}`,{
         method: 'PUT',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(upDateTouristSpot )
@@ -78,14 +78,17 @@ const tourUpdate = useLoaderData();
                 className="w-full p-2 mt-4"
               />
               <br />
-              <label>Country Name</label>
-              <br />
-              <input
-                type="text"
+              <select type="text"
                 name="country_name" // Fixed input name
                 placeholder="Enter Country Name"
-                className="w-full p-2 mt-4"
-              />
+                className="w-full p-2 mt-4">
+                    <option>Bangladesh</option>
+                    <option>Thailand</option>
+                    <option>Indonesia</option>
+                    <option>Malaysia</option>
+                    <option>Vietnam</option>
+                    <option>Cambodia</option>
+              </select>
               <br />
               <label>Location</label>
               <br />

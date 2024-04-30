@@ -27,7 +27,7 @@ console.log(user.email);
         console.log(newTouristSpot);
         // send to server
         
-        fetch('http://localhost:5000/Tourist',{
+        fetch('https://dream-destination-server.vercel.app/Tourist',{
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(newTouristSpot )
@@ -76,12 +76,23 @@ console.log(user.email);
               <br />
               <label>Country Name</label>
               <br />
-              <input
+              {/* <input
                 type="text"
                 name="country_name" // Fixed input name
                 placeholder="Enter Country Name"
                 className="w-full p-2 mt-4"
-              />
+              /> */}
+               <select type="text"
+                name="country_name" // Fixed input name
+                placeholder="Enter Country Name"
+                className="w-full p-2 mt-4">
+                    <option>Bangladesh</option>
+                    <option>Thailand</option>
+                    <option>Indonesia</option>
+                    <option>Malaysia</option>
+                    <option>Vietnam</option>
+                    <option>Cambodia</option>
+              </select>
               <br />
               <label>Location</label>
               <br />

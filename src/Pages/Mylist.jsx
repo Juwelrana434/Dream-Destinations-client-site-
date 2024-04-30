@@ -11,6 +11,7 @@ const Mylist = () => {
     })
     const { user, logOut } = useContext(AuthContext);
     const [tourspots, setTourSpots] = useState([]);
+    // const [afterdelete, setDelete] = useState(tourspots);
     // console.log(tourspots)
     
     // my list data delete
@@ -26,7 +27,7 @@ const Mylist = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/Tourist/delete/${_id}`, {
+        fetch(`https://dream-destination-server.vercel.app/Tourist/delete/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -39,6 +40,9 @@ const Mylist = () => {
                 icon: "success",
               });
               console.log("delete conform");
+              // const remain = tourspots.filter(to =>to._id ==_id);
+              // setDelete(remain);
+              
             }
           });
       }
@@ -47,55 +51,20 @@ const Mylist = () => {
     
     // my list data read 
     useEffect(() => {
-    fetch(`http://localhost:5000/Tourist/email/${user?.email}`)
+    fetch(`https://dream-destination-server.vercel.app/Tourist/email/${user?.email}`)
     .then(res => res.json())
     .then((data) => {
     setTourSpots(data)})
     },[user]);
     return (
         <div>
-           <div className="grid lg:grid-cols-3 gap-6 md:grid-cols-2">
-        {tourspots.map((tourspot) => (
-          <div key={tourspot.id}>
-            <div className="card bg-base-100 shadow-xl">
-              <div className="w-full mb-4">
-                <img
-                  src={tourspot.photo}
-                  className="w-full h-[280px] border-2 rounded-md border-gray-100 p-4 shadow-md"
-                />
-              </div>
-              <div className="">
-                <h2 className="card-title my-2 px-4">
-                  {tourspot.spot_name}
-                </h2>
-                <div className="flex justify-between items-center px-4">
-                  <p>{tourspot.travel_time} person</p>
-                  <p className="p-4"> Travel Time :{tourspot.total_visitor} Day</p>
-                </div>
-                <div className="flex justify-between items-center px-4">
-                  <p>Average cost : ${tourspot.average_cost} /person</p>
-                  <p className="p-4">seasonality:{tourspot.seasonality} </p>
-                </div>
-                <div className="card-actions justify-end ">
-                  <div className="w-full my-4 px-4">
-                    <Link to={`/tourspot/${tourspot._id}`}>
-                      <button className="btn btn-primary w-full">
-                        View Details
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+          
       <div className="overflow-x-auto w-full">
       <table className="table w-full">
         {/* head */}
         <thead className="w-full">
           <tr className="W-full">
-            <div className="w-full flex justify-between text-xl font-bold"><th>Tourist spot</th>
+            <div className="w-full grid grid-cols-5 text-xl font-bold"><th>Tourist spot</th>
             <th>Country</th>
             <th>Average cost</th>
             <th>Seasonality</th>
@@ -112,11 +81,11 @@ const Mylist = () => {
           {/* use map here  */}
           
             {/* <th>1</th> */}
-            <div className="flex w-full justify-between my-4 px-4"><h1>{tour.spot_name}</h1>
+            <div className="grid grid-cols-5 gap-2 w-full  my-4 px-4"><h1>{tour.spot_name}</h1>
             <h1>{tour.country_name}</h1>
             <h1> ${tour.average_cost}</h1>
             <h1>{tour.seasonality}</h1>
-           <div className="flex justify-between"> <h1 className="mr-10"><Link to={`/update/${tour._id}`}>
+           <div className="grid grid-cols-2 gap-2"> <h1 className="mr-10"><Link to={`/update/${tour._id}`}>
                       <button className="btn btn-success w-full">
                         Update
                       </button>
@@ -159,6 +128,43 @@ const Mylist = () => {
       tourupdate={tourupdate}
       ></TourSpotUpdate> )
       } */}
+      </div>
+      
+      <div className="grid lg:grid-cols-3 gap-6 md:grid-cols-2">
+        {tourspots.map((tourspot) => (
+          <div key={tourspot.id}>
+            <div className="card bg-base-100 shadow-xl">
+              <div className="w-full mb-4">
+                <img
+                  src={tourspot.photo}
+                  className="w-full h-[280px] border-2 rounded-md border-gray-100 p-4 shadow-md"
+                />
+              </div>
+              <div className="">
+                <h2 className="card-title my-2 px-4">
+                  {tourspot.spot_name}
+                </h2>
+                <div className="flex justify-between items-center px-4">
+                  <p>{tourspot.travel_time} person</p>
+                  <p className="p-4"> Travel Time :{tourspot.total_visitor} Day</p>
+                </div>
+                <div className="flex justify-between items-center px-4">
+                  <p>Average cost : ${tourspot.average_cost} /person</p>
+                  <p className="p-4">seasonality:{tourspot.seasonality} </p>
+                </div>
+                <div className="card-actions justify-end ">
+                  <div className="w-full my-4 px-4">
+                    <Link to={`/tourspot/${tourspot._id}`}>
+                      <button className="btn btn-primary w-full">
+                        View Details
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
         </div>
     );

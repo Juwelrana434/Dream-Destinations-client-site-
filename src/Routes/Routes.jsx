@@ -23,8 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/Tourist/')
-        
+        loader: () =>
+          fetch(
+            "https://dream-destination-server.vercel.app/Tourist/"
+          ),
       },
       {
         path: "/login",
@@ -49,8 +51,10 @@ const router = createBrowserRouter([
             <TourSpotDetail></TourSpotDetail>
           </ProtectedRout>
         ),
-        loader: ({params}) => fetch(`http://localhost:5000/Tourist/${params.id}`)
-
+        loader: ({ params }) =>
+          fetch(
+            `https://dream-destination-server.vercel.app/Tourist/${params.id}`
+          ),
       },
 
       {
@@ -64,17 +68,26 @@ const router = createBrowserRouter([
       {
         path: "/alltourist",
         element: <AllTouristSpot></AllTouristSpot>,
-        loader: () => fetch('http://localhost:5000/Tourist')
+        loader: () =>
+          fetch(
+            "https://dream-destination-server.vercel.app/Tourist"
+          ),
       },
       {
         path: "/update/:id",
         element: <TourSpotUpdate></TourSpotUpdate>,
-       loader: ({params}) =>fetch(`http://localhost:5000/Tourist/email/${params.id}`)
+        loader: ({ params }) =>
+          fetch(
+            `https://dream-destination-server.vercel.app/Tourist/email/${params.id}`
+          ),
       },
       {
         path: "/bangladesh/:country",
         element: <Bangladesh></Bangladesh>,
-       loader: ({params}) =>fetch(`http://localhost:5000/Tourist/country/${params.country}`)
+        loader: ({ params }) =>
+          fetch(
+            `https://dream-destination-server.vercel.app/Tourist/country/${params.country}`
+          ),
       },
     ],
   },
