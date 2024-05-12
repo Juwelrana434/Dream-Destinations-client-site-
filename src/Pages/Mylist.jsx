@@ -15,8 +15,8 @@ const Mylist = () => {
     // console.log(tourspots)
     
     // my list data delete
-    const handleDelete = _id => {
-    console.log(_id, "delete")
+    const handleDelete = id => {
+    console.log(id, "delete")
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -27,7 +27,7 @@ const Mylist = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://dream-destination-server.vercel.app/Tourist/delete/${_id}`, {
+        fetch(`https://dream-destination-server.vercel.app/Tourist/delete/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -40,8 +40,8 @@ const Mylist = () => {
                 icon: "success",
               });
               console.log("delete conform");
-              // const remain = tourspots.filter(to =>to._id ==_id);
-              // setDelete(remain);
+              const remain = tourspots.filter(tour =>tour._id !==id);
+              setTourSpots(remain);
               
             }
           });
@@ -103,18 +103,7 @@ const Mylist = () => {
       }
       
           </tr>
-          {/* row 2 */}
-          {/* <tr>
-            <th>2</th>
-            <td>Hart Hagerty</td>
-            
-          </tr> */}
-          {/* row 3 */}
-          {/* <tr>
-            <th>3</th>
-            <td>Brice Swyre</td>
-            
-          </tr> */}
+          
         
      
     
